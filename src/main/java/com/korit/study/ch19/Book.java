@@ -2,11 +2,11 @@ package com.korit.study.ch19;
 
 import java.util.Objects;
 
-public class Car {
+public class Book {
     private String model;
     private String color;
 
-    public Car(String model, String color) {
+    public Book(String model, String color) {
         this.model = model;
         this.color = color;
     }
@@ -43,11 +43,11 @@ public class Car {
 
     @Override
     public boolean equals(Object o) {
-        if (o.getClass() != Car.class) {       //Car.class : Car 클래스에 대한 모든 정보
+        if (o.getClass() != Book.class) {       //Car.class : Car 클래스에 대한 모든 정보
             //-> 같은 클래스로 만들어졌는지 확인 -> Class class 개념
             return false;
         }
-        Car car = (Car) o;
+        Book car = (Book) o;
 //        if (!(o instancceof Car car)) return false;
         return Objects.equals(model, car.model) && Objects.equals(color, car.color);
     }
@@ -56,7 +56,6 @@ public class Car {
     public int hashCode() {
         return Objects.hash(model, color);
     }
-    //hash 사용하면 시간 복잡도가 매우 빠름
 
     @Override
     public String toString() {

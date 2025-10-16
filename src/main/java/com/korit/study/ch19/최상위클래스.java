@@ -12,6 +12,13 @@ public class 최상위클래스 {
         String f = "abc";
         Car car = new Car("k3", "화이트");
         Car car2 = new Car("k3", "화이트");
+        Book book = new Book("k3", "화이트");
+        System.out.println(car.equals(book));
+        System.out.println(car.hashCode() == book.hashCode());  //값으로 비교
+
+
+        System.out.println(car.equals(car2));   //== 으로 주소값 비교가 아닌 값 비교
+
         Object g = car;
 //        System.out.println(car.toString()); //비활성화 - 사용안하고 있거나 생략 가능
         String h = car.toString();
