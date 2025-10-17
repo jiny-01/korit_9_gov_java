@@ -1,5 +1,8 @@
 package com.korit.study.ch22.dto;
 
+import com.korit.study.ch22.entity.User;
+import com.korit.study.ch22.util.PasswordEncoder;
+
 public class SignupDto {
     private String username;
     private String password;
@@ -28,5 +31,10 @@ public class SignupDto {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    //toUser : dto -> User 객체 변환
+    public User toUser() {
+        return new User(0, username, PasswordEncoder.encode(password));
     }
 }

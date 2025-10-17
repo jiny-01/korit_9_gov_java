@@ -2,6 +2,7 @@ package com.korit.study.ch22;
 
 import com.korit.study.ch22.dto.SignupDto;
 import com.korit.study.ch22.service.SignupService;
+import com.korit.study.ch22.util.PasswordEncoder;
 
 import java.util.Scanner;
 
@@ -48,6 +49,10 @@ public class SignupMain {
 
                 System.out.print("비밀번호확인: ");
                 signupDto.setConfirmPassword(scanner.nextLine());
+                if (signupService.isValidConfirmPassword(signupDto.getPassword(), signupDto.getConfirmPassword())) {
+                    break;
+                }
+                System.out.println("비밀번호가 일치하지 않습니다. 다시 입력하세요.");
             } else if ("2".equals(selectedMenu)) {
                 System.out.println("[ 로그인 ]");
                 System.out.print("사용자이름: ");
