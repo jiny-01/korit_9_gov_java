@@ -28,14 +28,14 @@ public class Singleton {
 
     //이게 완전한 싱글톤 - 동시성까지 해결한 것
     public static Singleton getSynchronizedInstance() {
-        if (Objects.isNull(instance)) {          //작업 중인지 최초 확인
-            synchronized (Singleton.class) {     //다른 곳에서 작업 중인지 확인 - O : 건너뜀 X : 재검사
-                if (Objects.isNull(instance)) {    //진짜 작업 중 아닌 게 확인되면 그때서야 생성하는 것
+        if (Objects.isNull(instance)) {                // 1차 검사 (빠른 경로)
+            synchronized (Singleton.class) {           // 다른 스레드와 동기화
+                if (Objects.isNull(instance)) {        // 2차 검사 (진짜 null일 때만 생성)
                     instance = new Singleton("Class Data");
                 }
-                return instance;
             }
         }
+        return instance; // ← 반드시 synchronized 밖에서 리턴
     }
 
     public void changeData() {
@@ -45,4 +45,5 @@ public class Singleton {
     public void deleteData() {
         System.out.println("데이터 삭제: " + data);
     }
+
 }
