@@ -44,4 +44,18 @@ public class UserRepository {
 //
 //    }
     //이거 대신 autoIncrementId 사용
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();  // stringBuilder 라는 객체 생성 -> 버퍼란 공간 생김
+        stringBuilder.append("User 배열: [ ");
+        for (int i = 0; i < users.length; i++) {
+            stringBuilder.append(users[i]);
+            if (i != users.length - 1) {
+                stringBuilder.append(", ");
+            }
+        }
+        stringBuilder.append(" ]");
+        return stringBuilder.toString();
+    }
 }

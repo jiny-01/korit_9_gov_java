@@ -38,7 +38,7 @@ public class SignupService {
     }
 
     public boolean isValidPassword(String password) {
-        return Objects.isNull(password) && !password.isBlank();  //공백 제거했을 때 공백 = 입력값 없음
+        return !Objects.isNull(password) && !password.isBlank();  //공백 제거했을 때 공백 = 입력값 없음
     }
     //String 은 null 가능이므로 Objects 차원에서 null safe 확인해야함
     //isEmpty : 공백 포함해도 공백으로 인식 안함 -> 무조건 trim() 같이 써야함
