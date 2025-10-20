@@ -33,8 +33,14 @@ public class SignupDto {
         this.confirmPassword = confirmPassword;
     }
 
+
     //toUser : dto -> User 객체 변환
+    //DTO에 담긴 데이터를 실제 저장소에 저장될 User 객체로 변환
+    //비밀번호는 암호화된 비밀번호
     public User toUser() {
         return new User(0, username, PasswordEncoder.encode(password));
     }
 }
+
+
+//SignupMain (입력) → SignupDto (데이터 담기) → SignupService가 signupDto.toUser() 호출 → User 객체 생성 → UserRepository에 저장

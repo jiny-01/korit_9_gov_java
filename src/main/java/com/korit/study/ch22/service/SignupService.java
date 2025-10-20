@@ -7,12 +7,13 @@ import com.korit.study.ch22.util.PasswordEncoder;
 
 import java.util.Objects;
 
+//UserRepository와 마찬가지로 싱글톤 패턴
 public class SignupService {
 
     // 싱글톤 만들기 위한 조건
     // 1. instance static 변수 정의
     private static SignupService instance;   //static 변수는 instance 로 통일
-    private UserRepository userRepository;
+    private UserRepository userRepository;   //생성 시 UserRepository 객체 의존성 주입
 
     //외부에서 생성 못하도록 private - 이 클래스 내에서만 생성자 호출가능
     private SignupService(UserRepository userRepository) {
@@ -30,13 +31,14 @@ public class SignupService {
     //인스턴스 안에서 호출될 메서드 정의
     //유저네임 유효성검사
     public boolean isValidDuplicatedUsername(String username) {   //유효한지 여부 - 정상 - 중복 없음
-        User foundUser = userRepository.findByUsername(username);
-        if (Objects.isNull(foundUser)) {   //중복되는 거 없으면
-            return true;    //중복되지 않음 -> true
+        User foundUser = userRepository.findByUsername(username); //저장된 User 객체에서 username 으로 사용자 찾기
+        if (Objects.isNull(foundUser)) {      //중복되는 거 없으면 = 사용자 못 찾았으면
+            return true;    //중복되지 않음 -> 중복검사 통과 => true
         }
         return false;
     }
 
+    //비밀번호가 null이 아니고, 공백 문자로만 이루어져 있지도 않은지
     public boolean isValidPassword(String password) {
         return !Objects.isNull(password) && !password.isBlank();  //공백 제거했을 때 공백 = 입력값 없음
     }
@@ -48,9 +50,10 @@ public class SignupService {
         if (Objects.isNull(password) || Objects.isNull(confirmPassword)) {
             return false;
         }
-        return password.equals(confirmPassword);
+        return password.equals(confirmPassword);  //두 비밀번호가 일치하는지 확인
     }
 
+    //DTO를 User 객체로 변환(이때 암호화 발생)한 뒤, UserRepository에 저장(insert)을 요청
     public void signup(SignupDto signupDto) {
         User newUser = new User(0, signupDto.getUsername(), PasswordEncoder.encode(signupDto.getPassword()));
         userRepository.insert(signupDto.toUser());
