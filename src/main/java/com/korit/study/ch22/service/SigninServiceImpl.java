@@ -50,8 +50,11 @@ public class SigninServiceImpl implements SigninService{
 
         // 로그인 성공 -> 로그인 성공한 User객체 toString으로 출력
 
-        //PasswordEncoder를 이용해 사용자가 입력한 평문 비밀번호(signinDto.getPassword())와
+        // PasswordEncoder를 이용해 사용자가 입력한 평문 비밀번호(signinDto.getPassword())와
         // DB에 저장된 암호문(foundUser.getPassword())을 비교
+        // 여기서 signinDto.getPassword 랑 signupDto.getPassword 바로 비교할 수 없는 이유
+        // signinDto.getPassword()`: 사용자가 방금 입력한 평문 비밀번호 ("1234")
+        // foundUser.getPassword()`: 회원가입 때 DB에 저장해둔 암호화된 비밀번호 ("abcdef")
         if (!PasswordEncoder.match(signinDto.getPassword(), foundUser.getPassword())) {
             System.out.println("사용자 정보를 다시 확인하세요.");
             return;
