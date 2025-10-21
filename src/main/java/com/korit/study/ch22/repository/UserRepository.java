@@ -8,9 +8,13 @@ import java.util.Objects;
 public class UserRepository {
 
     private static UserRepository instance;  //UserRepository 는 하나의 객체만 존재 -static 변수
+    //싱글톤이므로 instance 변수로 만듦
+    //어디서든 참조 가능해야 하기 떄문에 static
+    //다른 곳에서 접근하지 못하도록 private - 한 클래스 내 변수는 전부 private
     private User[] users;  // User 객체를 저장할 배열 - DB 역할
     private int autoIncrementId = 1;
 
+    //생성자 호출 시 다른 곳에서 생성 못하도록 private
     private UserRepository() {
         users = new User[0];
         autoIncrementId = 1;     //Id 자동증가, 초기값 : 1

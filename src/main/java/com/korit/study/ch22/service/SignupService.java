@@ -12,8 +12,14 @@ public class SignupService {
 
     // 싱글톤 만들기 위한 조건
     // 1. instance static 변수 정의
-    private static SignupService instance;   //static 변수는 instance 로 통일
+    private static SignupService instance;
+    //static 변수는 instance 로 통일
+    //static 변수를 하나 정의함 - 다른 클래스 어디서든 메모리 참조, 접근 가능함 - 공유되어지는 변수 -> 변수명 instance 로 정의한 것일 뿐
+    // 자료형 : SignupService
+    //instance 에는 SignupService(자료형) 으로 생성된 값만 가능
+    // private : 다른 패키지에서 접근 불가능
     private UserRepository userRepository;   //생성 시 UserRepository 객체 의존성 주입
+    //이 클래스(즉, 이 파일) 에서 UserRepository 를 userRepository 라는 변수명으로 쓰겠다고 선언
 
     //외부에서 생성 못하도록 private - 이 클래스 내에서만 생성자 호출가능
     private SignupService(UserRepository userRepository) {
@@ -21,8 +27,10 @@ public class SignupService {
     }
 
     //static 이므로 외부 접근 가능하려면 getter 필요
+    // 다른 곳에서 호출해서 쓸 수 있도록 SignupService 객체를 리턴하는
+    // getInstance() 정의한 것
     public static SignupService getInstance() {
-        if (Objects.isNull(instance)) {            //호출 시 최초 한번만 null 인지 확인하고 생성
+        if (Objects.isNull(instance)) {              //호출 시 최초 한번만 null 인지 확인하고 생성
             instance = new SignupService(UserRepository.getInstance());
         }
         return instance;

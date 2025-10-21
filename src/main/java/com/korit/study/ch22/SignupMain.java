@@ -18,6 +18,8 @@ public class SignupMain {
         SigninServiceImpl signinService = SigninServiceImpl.getInstance();
         //private 로 생성자 제한해뒀으므로 객체 생성 불가
         //static 의 성질을 이용해서 getInstance 로 가져옴
+        // SigninService 를 Implements 한 다른 클래스 다 가능함
+
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
