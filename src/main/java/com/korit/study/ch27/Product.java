@@ -5,38 +5,16 @@ public class Product {
     private Integer price;
     private String size;
 
+//AllArgu 필수 정의
     public Product(String name, Integer price, String size) {
         this.name = name;
         this.price = price;
         this.size = size;
     }
 
+// NoArgu 필요X
 //    public Product() {
 //    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
 
     @Override
     public String toString() {
@@ -56,9 +34,6 @@ public class Product {
         private String name;
         private Integer price;
         private String size;
-
-//        public ProductBuilder(String name, Integer price, String size) {
-//        }
 
         public ProductBuilder name(String name) {
             this.name = name;
