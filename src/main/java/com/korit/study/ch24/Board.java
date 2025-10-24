@@ -13,7 +13,7 @@ public class Board {
         this.title = title;
         this.writer = writer;
         this.content = content;
-        this.comments = comments;    //?
+        this.comments = comments;
     }
 
     public Board() {
