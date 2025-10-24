@@ -68,6 +68,7 @@ public class BoardMain {
         comment2_1.put("content", "댓글 내용11");
 //        System.out.println(comment2_1);
 
+
         Map<String, String> comment2_2 = new HashMap<>();
         comment2_2.put("writer", "김준육");
         comment2_2.put("content", "댓글 내용22");

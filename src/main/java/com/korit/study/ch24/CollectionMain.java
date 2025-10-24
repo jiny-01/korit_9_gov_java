@@ -16,6 +16,7 @@ public class CollectionMain {
         list.add("문자열 값1");
         list.add("문자열 값");
 
+
         // get(인덱스) - 값을 가져오기
         String str = list.get(0);
         String str2 = list.get(1);

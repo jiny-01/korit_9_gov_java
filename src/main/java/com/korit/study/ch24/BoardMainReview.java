@@ -73,6 +73,7 @@ public class BoardMainReview {
 
         //////////////////////////////////////////////////////////////////////////////////////////////
 
+
         HashMap<String, Object> boardMap1 = new HashMap<String, Object>();
         boardMap1.put("title", "게시판 제목1");
         boardMap1.put("writer", new HashMap<String, Object>());

@@ -51,7 +51,7 @@ public class BoardMain2 {
 
         boards.add(board2);
 
-        /// ///////////전체 출력
+        //////////////전체 출력
         System.out.println("최종 리스트: " + boards);
 
     }

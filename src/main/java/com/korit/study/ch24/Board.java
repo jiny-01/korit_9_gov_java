@@ -9,14 +9,12 @@ public class Board {
     private String content;
     private List<Comment> comments;
 
-
     public Board(String title, Writer writer, String content, List<Comment> comments) {
         this.title = title;
         this.writer = writer;
         this.content = content;
         this.comments = comments;   //?
     }
-
 
     public Board() {
     }
