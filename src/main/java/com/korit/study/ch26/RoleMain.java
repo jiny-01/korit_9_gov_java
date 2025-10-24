@@ -26,7 +26,7 @@ public class RoleMain {
         System.out.println(user2);
         System.out.println(manager2);
 
-/// //////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 
         List<String> roles = List.of("ADMIN", "USER");
         List<String> roles2 = List.of("ADMIN", "MANAGER");

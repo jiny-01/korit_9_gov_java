@@ -52,7 +52,7 @@ enum Name2 {
             System.out.println(Writer.W1.getFullName());
             System.out.println(Writer.W1.getFullName());
             Writer writer = Writer.W1;
-            //enum : 백엔드 status.ok - 200, 400, 500 ...etc
+            //enum : 백엔드 status.ok - 200, 400, 500 ....etc
         }
     }
 }
