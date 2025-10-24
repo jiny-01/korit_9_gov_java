@@ -3,6 +3,7 @@ package com.korit.study.ch22.service;
 import com.korit.study.ch22.dto.SignupDto;
 import com.korit.study.ch22.entity.User;
 import com.korit.study.ch22.repository.UserRepository;
+import com.korit.study.ch22.repository.UserRepositoryImpl2;
 import com.korit.study.ch22.util.PasswordEncoder;
 
 import java.util.Objects;
@@ -22,7 +23,7 @@ public class SignupService {
     //이 클래스(즉, 이 파일) 에서 UserRepository 를 userRepository 라는 변수명으로 쓰겠다고 선언
 
     //외부에서 생성 못하도록 private - 이 클래스 내에서만 생성자 호출가능
-    private SignupService(UserRepository userRepository) {
+    private SignupService(UserRepositoryImpl2 userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -31,7 +32,7 @@ public class SignupService {
     // getInstance() 정의한 것
     public static SignupService getInstance() {
         if (Objects.isNull(instance)) {              //호출 시 최초 한번만 null 인지 확인하고 생성
-            instance = new SignupService(UserRepository.getInstance());
+            instance = new SignupService(UserRepositoryImpl2.getInstance());
         }
         return instance;
     }

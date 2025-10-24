@@ -2,11 +2,9 @@ package com.korit.study.ch22;
 
 import com.korit.study.ch22.dto.SigninDto;
 import com.korit.study.ch22.dto.SignupDto;
-import com.korit.study.ch22.repository.UserRepository;
-import com.korit.study.ch22.service.SigninService;
+import com.korit.study.ch22.repository.UserRepositoryImpl;
 import com.korit.study.ch22.service.SigninServiceImpl;
 import com.korit.study.ch22.service.SignupService;
-import com.korit.study.ch22.util.PasswordEncoder;
 
 import java.util.Scanner;
 
@@ -68,14 +66,12 @@ public class SignupMain {
 
             } else if ("2".equals(selectedMenu)) {
                 System.out.println("[ 로그인 ]");
-                System.out.print("사용자이름: ");
-                System.out.print("비밀번호: ");
 
                 // SigninDto 를 생성하여 로그인 정보 입력 받음 (공백확인)
                 // 유효성 검사 완료 후 signin() 호출
                 //사용자가 공백이 아닌 유효한 값을 입력해야만 루프를 빠져나와 (break)
                 // 실제 로그인 로직을 실행할 수 있게 분기처리
-                SigninDto signinDto = new SigninDto();  //SigninDto 객체를 생성
+                SigninDto signinDto = new SigninDto();   //SigninDto 객체를 생성
                 while (true) {
                     System.out.print("사용자이름: ");
                     signinDto.setUsername(scanner.nextLine());
@@ -99,7 +95,7 @@ public class SignupMain {
 
             } else if ("3".equals(selectedMenu)) {
                 System.out.println("[ 가입된 회원 전체 조회 ]");
-                System.out.println(UserRepository.getInstance().toString());
+                System.out.println(UserRepositoryImpl.getInstance().toString());
             }
         }
 
