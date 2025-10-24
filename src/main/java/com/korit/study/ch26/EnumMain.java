@@ -46,7 +46,7 @@ enum Writer {
     }
 }
 
-// enumerated -> 열거, 나열
+// enumerated -> 열거, 나열하기 위함
 public class EnumMain {
     public static void main(String[] args) {
         System.out.println(Name.준일);    //준일
