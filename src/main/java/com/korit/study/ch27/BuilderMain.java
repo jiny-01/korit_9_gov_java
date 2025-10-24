@@ -9,6 +9,18 @@ public class BuilderMain {
                 .value2(32)
                 .build();
 
+        ComputerBuilder computerBuilder = Computer.builder(); // 빌더 생성
+        computerBuilder.setCpu("i7");
+        computerBuilder.setRam(8);
+        Computer computer = computerBuilder.build();                 // 빌드
+
+        ComputerBuilder computerBuilder2 = Computer.builder().cpu("i5").ram(16); // 빌더 생성
+        computerBuilder.setCpu("i7");
+        computerBuilder.setRam(8);
+        Computer computer2 = computerBuilder2.build();                 // 빌드
+
+        Computer computer3 = Computer.builder().cpu("i5").ram(16).build();
+
         Product product = Product.builder().name("상품1").price(1000).size("L").build();
         System.out.println(product);
     }

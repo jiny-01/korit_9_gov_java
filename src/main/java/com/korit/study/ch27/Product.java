@@ -11,6 +11,9 @@ public class Product {
         this.size = size;
     }
 
+//    public Product() {
+//    }
+
     public String getName() {
         return name;
     }
@@ -44,21 +47,38 @@ public class Product {
                 '}';
     }
 
+    //builder() 호출하기 위한 static 메서드
+    public static ProductBuilder builder() {
+        return new ProductBuilder();
+    }
+
     public static class ProductBuilder {
         private String name;
         private Integer price;
         private String size;
 
-        public ProductBuilder(String name, Integer price, String size) {
-        }
+//        public ProductBuilder(String name, Integer price, String size) {
+//        }
 
-        public ProductBuilder builder(String name) {
+        public ProductBuilder name(String name) {
             this.name = name;
+            return this;
+        }
+
+        public ProductBuilder price(Integer price) {
+            this.price = price;
+            return this;
+        }
+
+        public ProductBuilder size(String size) {
+            this.size = size;
+            return this;
         }
 
 
-        public ProductBuilder build() {
-            return new ProductBuilder(name, price, size);
+        //build 하기 위함
+        public Product build() {
+            return new Product(name, price, size);
         }
     }
 
