@@ -56,11 +56,7 @@ public class LambdaMain {
                 return a * b - c;
             }
         };
-        //1.  생성자 부분 new LambdaStudy() 부분 생략
-        //2. @override 생략
-        //3. 함수명, public, 자료형 생략
-        //4. 1~3 까지의 과정을 "->" 로 대체 - 매개변수와 실행코드 사이를 ->
-        //5. {} 생략
+
 
         // 1) 생성자 호출 부분 -> 기호로 대체
         LambdaStudy s2 = (int a, int b, int c) -> {
@@ -70,8 +66,7 @@ public class LambdaMain {
         System.out.println(s2.calc(10, 5, 2));
 
         // 2) 매개변수 자료형 생략 가능,
-        // => 인터페이스에 이미 명시되어 있음 -> 그래서 인터페이스에는 하나의 메서드만 정의 가능한 것
-        // 람다가 아니더라도 오버라이드(재정의) 는 매개변수명도 변경 가능
+
         LambdaStudy s3 = (aa, bb, cc) -> {
             System.out.println("익명 -> 람다 변환2");
             return aa * bb - cc;
