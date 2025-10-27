@@ -59,7 +59,16 @@ public class ButtonMain2 {
         registerButton.setClickListener(registerButtonClickListener);
         registerButton.click();
 
-        //람다함수 사용
+        Button mypageButton = new Button();
+        mypageButton.setClickListener(new ClickListener() {
+            @Override
+            public void onClick() {
+                System.out.println("마이페이지로 이동합니다.");
+            }
+        });
+        mypageButton.click();
+
+//////////////////////////////람다함수 사용////////////////////////////////
         //객체 정의와 생성이 동시에 일어남 --**이땐 호출 아님
         Button shopButton = new Button();
         shopButton.setClickListener(() -> {

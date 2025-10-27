@@ -23,7 +23,7 @@ public class ButtonMain {
 
         button.click();
 
-        // TODO: 여기에 익명 클래스를 사용하여 ClickListener 구현
+//        // TODO: 여기에 익명 클래스를 사용하여 ClickListener 구현
 //        button.setClickListener(new ClickListener() {
 //            @Override
 //            public void onClick() {
