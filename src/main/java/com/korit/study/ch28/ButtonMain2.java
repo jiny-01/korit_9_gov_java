@@ -21,6 +21,8 @@ class LoginButtonClickListener implements ClickListener {
 class Button2 {
     private ClickListener listener;
 
+    //Button2 가 인터페이스인 ClickListener 를 매개변수로 받음
+    //인터페이스에 하나만 정의되어 있으므로 람다에서 생략가능
     public void setClickListener(ClickListener listener) {
         this.listener = listener;
     }
@@ -58,8 +60,15 @@ public class ButtonMain2 {
         registerButton.click();
 
         //람다함수 사용
+        //객체 정의와 생성이 동시에 일어남 --**이땐 호출 아님
         Button shopButton = new Button();
-        shopButton.setClickListener(() -> System.out.println("상점으로 이동합니다."));
+        shopButton.setClickListener(() -> {
+            System.out.println("버튼이 클릭되었습니다.");
+            System.out.println("상점으로 이동합니다.");
+        });
+        //이 때 호출 -> .click() 했을 때
+        // Button 클래스에 정의된 click() 메서드의 수행내용인
+        // listener.onClick(); 가 실행되는 것
         shopButton.click();
     }
 }
