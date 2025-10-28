@@ -1,5 +1,6 @@
 package com.korit.study.ch29;
 
+@FunctionalInterface          //함수형 인터페이스 - 람다 전용으로 쓰겠다고 명시
 interface LambdaStudy {
     int calc(int a, int b, int c);
 }

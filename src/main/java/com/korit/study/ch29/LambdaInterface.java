@@ -4,10 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 public class LambdaInterface {
@@ -72,6 +69,22 @@ public class LambdaInterface {
             System.out.println("4");
             System.out.println("숫자: " + d);
         }).accept(3.14);
+
+        //forEach()
+        List<String> nameList = List.of("김준일", "김준이");
+        nameList.forEach(n -> System.out.println(n));  //생성과 동시에 구현하는 것, 람다함수의 메서드 = action
+        nameList.forEach(System.out :: println);
+        //:: - 더블콜론
+        //람다의 메서드 참조
+
+
+        //forEach()
+//        default void forEach(Consumer<? super T> action) {       //action : Consumer 객체, 람다함수 내 메서드가 실행되어 생성된 결과
+//            Objects.requireNonNull(action);
+//            for (T t : this) {
+//                action.accept(t);                                 //action 객체
+//            }
+//        }
 
         //3. supplier - 매개변수 X, 리턴 O - boolean
         String str = null;
@@ -179,6 +192,13 @@ public class LambdaInterface {
                 .collect(Collectors.toList())      //동일한 결과 값 (1개) 찾아서 리스트에 넣어두고
                 .getFirst();                        //가져와라
         System.out.println(foundName);
+
+
+        //Function 에서 매개변수 O, 리턴 O , 둘의 자료형이 동일하면
+        UnaryOperator<String> f1 = s -> s + "문자열";    //#1
+        Function<String, String> f2 = s -> s + "문자열";   //#2
+        BiFunction<String, String, String> f3 = (s1, s2) -> s1 + s2;
+        BinaryOperator<String> f4 = (s1, s2) -> s1 + s2;
 
 
 
