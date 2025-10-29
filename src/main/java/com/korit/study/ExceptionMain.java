@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 /*
+
 * 예외처리 (Exception or Error)
 * 오류가 났을 때 프로그램이 강제 종료되는 것을 방지하기 위한 목적으로 사용
 * Throwable -> Compile Error (실행 전), Runtime Error (실행 중)
