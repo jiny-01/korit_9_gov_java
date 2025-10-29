@@ -1,4 +1,4 @@
-package com.korit.study;
+package com.korit.study.ch31;
 
 import java.io.IOException;
 import java.util.List;
@@ -127,4 +127,4 @@ public class ExceptionMain {
 
 
     }
-}
+
